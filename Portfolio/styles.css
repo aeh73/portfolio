@@ -1,0 +1,175 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+#logo h1 {
+    color: #fff;
+    margin: 0;
+}
+
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #fff;
+}
+
+#nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+#nav-list li {
+    margin-left: 20px;
+}
+
+#nav-list li a {
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.75s, color 0.75s, padding 0.75s;
+    padding: 5px;
+}
+
+#nav-list li a:hover, #nav-list li a.active {
+    color: #000;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+section {
+    height: 100vh;
+    padding-top: 50px;
+}
+
+
+#home {
+    background-color: #f2f2f2;
+}
+
+#about-me {
+    background-color: #e6e6e6;
+}
+
+#projects {
+    background-color: #d9d9d9;
+}
+
+#contact-me {
+    background-color: #cccccc;
+}
+
+#scrollToTop {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#themeToggle {
+    position: fixed;
+    top: 50px;
+    left: 5px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+body.dark-mode {
+    background-color: #000;
+    color: #fff;
+}
+
+body.dark-mode header {
+    background-color: #000;
+}
+
+body.dark-mode #logo h1, body.dark-mode #nav-list li a {
+    color: #fff;
+}
+
+body.dark-mode #nav-list li a:hover, body.dark-mode #nav-list li a.active {
+    color: #000;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+body.dark-mode section {
+    background-color: #000;
+}
+
+body:not(.dark-mode) {
+    background-color: #fff;
+    color: #000;
+}
+
+body:not(.dark-mode) header{
+    background-color: #fff;
+}
+
+body:not(.dark-mode) #hamburger {
+    color: #000000;
+}
+
+body:not(.dark-mode) #logo h1, body:not(.dark-mode) #nav-list li a {
+    color: #000;
+}
+
+body:not(.dark-mode) #nav-list li a:hover, body:not(.dark-mode) #nav-list li a.active{
+    color: #fff;
+    background-color: #000;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    #navbar {
+        flex-direction: column;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+
+    #nav-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #nav-list li {
+        margin: 10px 0;
+    }
+    
+    #nav-list.active {
+        display: flex;
+    }
+} 
