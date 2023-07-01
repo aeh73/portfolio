@@ -1,3 +1,7 @@
+// Scrolls to top  of page on load/refresh
+window.onload = function() {
+    window.scrollTo(0, 0);
+}
 // Handle smooth scrolling
 const anchors = document.querySelectorAll('a[href^="#"]');
 anchors.forEach(anchor => {
@@ -59,4 +63,29 @@ themeToggle.addEventListener('click', function() {
     }
 });
 
+// Initialize observer for home section animations on scroll
+let observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1  // represents the percentage of the target visible before the callback is invoked
+  };
+  
+  // Function that will be called whenever the target meets the threshold specified in observerOptions
+  function homeObserverCallback(entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        document.querySelector('#home .left').classList.add('animate-left');
+        document.querySelector('#home .right').classList.add('animate-right');
+      } else {
+        document.querySelector('#home .left').classList.remove('animate-left');
+        document.querySelector('#home .right').classList.remove('animate-right');
+      }
+    });
+  }
+  
+  // Create the observer with the callback function and options
+  let homeObserver = new IntersectionObserver(homeObserverCallback, observerOptions);
+  
+  // Start observing the home section
+  homeObserver.observe(document.querySelector('#home'));
 
